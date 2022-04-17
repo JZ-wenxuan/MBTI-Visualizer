@@ -178,7 +178,7 @@
 
 <body>
   <div class="wrapper">
-    <div style="height: 20px;"></div>
+    <h1>Visual Aid for Study of MBTI</h1>
     <div class="flex-row">
       <div class="filter-bar">
         <div id="filter0">E</div>
@@ -203,7 +203,7 @@
   </div>
   <div id="searchResult" class="flex-column"
     style="position: absolute; top: 100%; left: 0; height: 100%; width: 100%; transition: top 1s; pointer-events: none;">
-    <div style="flex:0 0 110px;"></div>
+    <div style="flex:0 0 160px;"></div>
     <div class="flex-column fill-remaining" style=" background-color: white; width: 100%; pointer-events: all;">
       <svg id="closeSearch" style="margin-top: 10px; height: 30px; width: 30px; cursor: pointer;" viewPort="0 0 30 30"
         version="1.1" preserveAspectRatio="xMidYMid" xmlns="http://www.w3.org/2000/svg">
@@ -493,9 +493,9 @@
       document.getElementById(`filter${letter}`).style.backgroundColor = filtered[letter] ? '#DDDDDD' : '#444444';
       document.getElementById(`filter${letter}`).style.color = filtered[letter] ? '#000000' : '#FFFFFF';
       for (let type = 0; type < 16; type++) {
-        if (hasLetter(type, letter)) {
-          displayed_percentages[type] = filtered[letter] ? 0 : type_percentages[type];
-        }
+        // if (hasLetter(type, letter)) {
+          displayed_percentages[type] = typeIsFiltered(types[type]) ? 0 : type_percentages[type];
+        // }
       }
       pie.update();
       for (let i = 0; i < profileElems.length; i++) {
